@@ -85,7 +85,7 @@
 		
 		//$query="Select username FROM users WHERE username ='$username' AND password ='$password'";
 		$query = 'select username, password from users where username="' .$_POST['username'] .'" and password="' .md5($_POST['password']) .'";';
-		;
+		
 		$result=get($query);
 		if(count($result)>0)return true;
 		return false;

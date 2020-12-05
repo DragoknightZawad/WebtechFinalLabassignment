@@ -23,4 +23,13 @@
 		$result = get($query);
 		return $result;
 	}
+	function getProduct($id)
+	{
+	
+		$query = "SELECT * FROM products WHERE id=$id";
+		$result=get($query);
+		if(count($result)>0)$result=$result[0];
+		
+		return $result;
+	}
 ?>
