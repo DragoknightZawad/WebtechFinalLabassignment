@@ -42,11 +42,18 @@
 		else{
 			$password = htmlspecialchars($_POST["password"]);
 		}
+		if(empty($_POST["contact"])){
+			$err_contact="Phone Required";
+			$hasError =true;	
+		}
+		else{
+			$contact = htmlspecialchars($_POST["contact"]);
+		}
 		
 			if(!$hasError)
 			{
 				//echo"Ok";
-				addUser($name,$username,$email,$password);
+				addUser($name,$username,$email,$password,$contact);
 				header("Location: login.php");
 				
 			}
@@ -70,11 +77,11 @@
 		
 	}
 	
-	function addUser($name,$username,$email,$password)
+	function addUser($name,$username,$email,$password,$contact)
 	{
 		$password=md5($password);
 		
-	    $query = "INSERT INTO final (name,username,email,password) VALUES ('$name','$username','$email','$password')";
+	    $query = "INSERT INTO final (name,username,email,password,phone) VALUES ('$name','$username','$email','$password','$contact')";
 		execute($query);
 		
 		
@@ -86,7 +93,7 @@
 		
 		
 		//$query="Select username FROM users WHERE username ='$username' AND password ='$password'";
-		$query = 'select username, password from users where username="' .$_POST['username'] .'" and password="' .md5($_POST['password']) .'";';
+		$query = 'select username, password from final where username="' .$_POST['username'] .'" and password="' .md5($_POST['password']) .'";';
 		
 		$result=get($query);
 		if(count($result)>0)return true;
