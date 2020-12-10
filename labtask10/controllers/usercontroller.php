@@ -72,8 +72,9 @@
 		if(!$hasError)
 		{
 			
-			addUser($_POST["name"],$_POST["id"],$_POST["dob"],$_POST["credit"],$_POST["cgpa"],$_POST["dept_id"]);
+		    addUser($_POST["name"],$_POST["id"],$_POST["dob"],$_POST["credit"],$_POST["cgpa"],$_POST["dept_id"]);
 			header("Location:allstudents.php");
+			
 		}
 	}
 	if(isset($_POST["editstudents"]))
@@ -82,7 +83,7 @@
 		if(!$hasError)
 		{
 			
-			addUser($_POST["name"],$_POST["id"],$_POST["dob"],$_POST["credit"],$_POST["cgpa"],$_POST["dept_id"]);
+			editstudent($_POST['name'],$_POST['id'], $_POST['dob'] , $_POST['credit'] , $_POST['cgpa'] ,$_POST['dept_id'] );
 			header("Location:allstudents.php");
 		}
 	}
@@ -100,7 +101,11 @@
 				}
 			}
 	}
-		
+	if (isset($_POST['deletestudent']))
+	{
+      deleteStudent( $_POST['id']);
+	  header("Location:allstudents.php");
+	}	
 	
 	
 	function addUser($name,$id,$dob,$credit,$cgpa,$department)
@@ -117,25 +122,16 @@
 	function editstudent($name,$id,$dob,$credit,$cgpa,$department)
 	{
 	
-		$query = "Update students(name,dob,credit,cgpa,dept_id) VALUES ('$name','$dob','$credit','$cgpa','$department') where id=$id";
+	//$sql = "UPDATE students SET lastname='Doe' WHERE id=2";
+	 $query = "UPDATE students SET name ='$name', dob = '$dob', credit= '$credit', cgpa='$cgpa' , dept_id='$department' WHERE id=$id;" ;
 	     execute($query);
 		
 	}
-	function authenticate($username,$password)
-	{
-		
-		
-		//$query="Select username FROM users WHERE username ='$username' AND password ='$password'";
-		$query = 'select username, password from final where username="' .$_POST['username'] .'" and password="' .md5($_POST['password']) .'";';
-		
-		$result=get($query);
-		if(count($result)>0)return true;
-		return false;
-			
-		
-			
-		
+	function deleteStudent($id){
+    $query = "DELETE FROM students where id=$id ;" ;
+	execute($query);
 	}
+	
 	
 	
 	

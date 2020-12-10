@@ -1,5 +1,6 @@
-<?php include 'admin_header.php';
+<?php include 'student_header.php';
       require_once"../controllers/usercontroller.php";
+	 
 	
 	  
 ?>

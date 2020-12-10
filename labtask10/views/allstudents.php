@@ -1,6 +1,7 @@
 <?php
 require_once '../controllers/dashboard.php';
 $students = getAllUsers();
+ include 'main_header.php';
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +15,8 @@ $students = getAllUsers();
 <div class="container">
 
 
-    <h1><b>Welcome to Webtech<b></h1>
+  
+   <h1><b>Welcome to Webtech<b></h1>
     <p>All Students</p>
 
 
@@ -46,8 +48,9 @@ $students = getAllUsers();
 					
                     echo '<td> '.$key["dept_id"].'</td>';
 				  
-					echo'<td><a href="student.php" class="btn btn-success">Edit</a></td>';
-					echo'<td><a class="btn btn-danger">Delete</td>';
+				   echo'<td><a href="student.php" class="btn btn-success">Edit</a></td>';
+					echo'<td><a href="DeleteStudent.php" class="btn btn-danger">Delete</td>';
+				
 
     						echo '</tr>';
     			}
