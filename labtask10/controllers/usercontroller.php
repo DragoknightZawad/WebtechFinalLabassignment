@@ -11,8 +11,9 @@
 	$err_dob="";
 	$credit="";
 	$err_credit="";
-	$department=""
-	$err_department
+	$department="";
+	$cgpa="";
+	$err_department="";
 	$hasError=False;
 	/* 
 	if(isset($_POST["Register"])){
@@ -65,7 +66,27 @@
 			
 	}
 	*/
-	else if(isset($_POST["login"]))
+	if(isset($_POST["addstudents"]))
+	{
+		$hasError=False;
+		if(!$hasError)
+		{
+			
+			addUser($_POST["name"],$_POST["id"],$_POST["dob"],$_POST["credit"],$_POST["cgpa"],$_POST["dept_id"]);
+			header("Location:allstudents.php");
+		}
+	}
+	if(isset($_POST["editstudents"]))
+	{
+		$hasError=False;
+		if(!$hasError)
+		{
+			
+			addUser($_POST["name"],$_POST["id"],$_POST["dob"],$_POST["credit"],$_POST["cgpa"],$_POST["dept_id"]);
+			header("Location:allstudents.php");
+		}
+	}
+	 if(isset($_POST["login"]))
 	{
 		if(!$hasError)
 			{
@@ -78,18 +99,26 @@
 					echo "Invalid Username or Password";
 				}
 			}
-		
 	}
+		
 	
-	function addUser($name,$id,$dob,$password,$credit,$department)
+	
+	function addUser($name,$id,$dob,$credit,$cgpa,$department)
 	{
 		$password=md5($password);
 		
-	    $query = "INSERT INTO final (name,id,dob,password,credit,department) VALUES ('$name','$id','$dob','$password','$credit','$department')";
+	    $query = "INSERT INTO students(name,id,dob,credit,cgpa,dept_id) VALUES ('$name','$id','$dob','$credit','$cgpa','$department')";
 		execute($query);
 		
 		
 		
+		
+	}
+	function editstudent($name,$id,$dob,$credit,$cgpa,$department)
+	{
+	
+		$query = "Update students(name,dob,credit,cgpa,dept_id) VALUES ('$name','$dob','$credit','$cgpa','$department') where id=$id";
+	     execute($query);
 		
 	}
 	function authenticate($username,$password)

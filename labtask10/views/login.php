@@ -1,5 +1,5 @@
 <?php include 'main_header.php';
-      require_once"../controllers/usercontroller.php";
+      require_once"../controllers/admin.php";
 ?>
 
 <!--login starts -->
@@ -25,4 +25,3 @@
 </div>
 
 <!--login ends -->
-<?php include 'main_footer.php';?>

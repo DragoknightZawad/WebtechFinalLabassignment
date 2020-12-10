@@ -2,7 +2,7 @@
 require_once '../models/db_connect.php';
 
 function getAllUsers(){
-    $query = "select * from final";
+    $query = "select * from students";
     return get($query);
 }
 

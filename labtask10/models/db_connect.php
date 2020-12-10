@@ -2,7 +2,7 @@
 	$dbusername="root";
 	$servername="localhost";
 	$dbpassword="";
-	$db_name="inventory";
+	$db_name="finalwebtech";
 	
 	function execute($query){
 		global $dbusername,$servername,$dbpassword,$db_name;
