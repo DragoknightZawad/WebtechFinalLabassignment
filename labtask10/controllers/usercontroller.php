@@ -1,17 +1,20 @@
 <?php
 	require_once "../models/db_connect.php";
-	$name="";
-	$username="";
+	$name=""; 
+	$id="";
 	
 	$err_name="";
-	$err_username="";
+	$err_id="";
 	$password="";
 	$err_password="";
-	$contact="";
-	$err_contact="";
-	$email="";
-	$err_email="";
+	$dob="";
+	$err_dob="";
+	$credit="";
+	$err_credit="";
+	$department=""
+	$err_department
 	$hasError=False;
+	/* 
 	if(isset($_POST["Register"])){
 		if(empty($_POST["name"])){
 			$err_name="Name Required";
@@ -61,6 +64,7 @@
 			
 			
 	}
+	*/
 	else if(isset($_POST["login"]))
 	{
 		if(!$hasError)
@@ -77,11 +81,11 @@
 		
 	}
 	
-	function addUser($name,$username,$email,$password,$contact)
+	function addUser($name,$id,$dob,$password,$credit,$department)
 	{
 		$password=md5($password);
 		
-	    $query = "INSERT INTO final (name,username,email,password,phone) VALUES ('$name','$username','$email','$password','$contact')";
+	    $query = "INSERT INTO final (name,id,dob,password,credit,department) VALUES ('$name','$id','$dob','$password','$credit','$department')";
 		execute($query);
 		
 		
@@ -103,3 +107,6 @@
 			
 		
 	}
+	
+	
+	
