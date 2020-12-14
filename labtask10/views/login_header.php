@@ -6,10 +6,10 @@
 	</head>
 	<body>
 		<div class="text-center">
-			<h1 class="header">Add Students</h1>
+			<h1 class="header"> Admin Login</h1>
 			<div class="text-center">
-			<a href="allstudents.php" class="btn btn-primary">Current Students</a>
-		
+	
+	
 		</div>
 		<!--menu starts-->
 	

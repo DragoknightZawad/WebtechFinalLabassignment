@@ -1,14 +1,16 @@
-<?php include 'main_header.php';
+<?php include 'login_header.php';
       require_once"../controllers/admin.php";
 ?>
+
+<script src="js/login.js"></script>
 
 <!--login starts -->
 <div class="center-login">
 	<h1 class="text text-center">Login</h1>
-	<form action="" method="post" class="form-horizontal form-material">
+	<form name="myForm" action="" onsubmit="return validateForm()"  method="post" class="form-horizontal form-material">
 		<div class="form-group">
 			<h4 class="text">Username</h4> 
-			<input type="text" name="username" class="form-control">
+			<input type="text" name="username" class="form-control"><span><p id="username_error"></p></span>
 		</div>
 		<div class="form-group">
 			<h4 class="text">Password</h4> 
@@ -16,7 +18,7 @@
 		</div>
 		<div class="form-group text-center">
 			
-			<input type="submit" class="btn btn-danger" name="login" value="Login" class="form-control">
+			<input type="submit" class="btn btn-danger" name="login" value="Login" class="form-control"><br><span><p id="password_error"></p></span>
 		</div>
 		<div class="form-group text-center">
 			
