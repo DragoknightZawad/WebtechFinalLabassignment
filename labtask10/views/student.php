@@ -1,6 +1,10 @@
 <?php include 'student_header.php';
       require_once"../controllers/usercontroller.php";
-	 
+	  
+	$student = getastudent($_GET["id"]);
+   
+      echo $student[0]["id"];
+	
 	
 	  
 ?>

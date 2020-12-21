@@ -131,6 +131,13 @@
     $query = "DELETE FROM students where id=$id ;" ;
 	execute($query);
 	}
+	function getastudent($id){
+    $query = "SELECT * FROM students where id='$id';";
+	//	echo $query;
+    return get($query);}
+	
+	
+
 	
 	
 	

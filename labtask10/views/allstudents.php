@@ -1,6 +1,8 @@
 <?php
 require_once '../controllers/dashboard.php';
+require_once"../controllers/usercontroller.php";
 $students = getAllUsers();
+$student = getastudent($_GET["id"]);
  include 'main_header.php';
 ?>
 
@@ -48,7 +50,7 @@ $students = getAllUsers();
 					
                     echo '<td> '.$key["dept_id"].'</td>';
 				  
-				   echo'<td><a href="student.php" class="btn btn-success">Edit</a></td>';
+				echo '<td><a href="student.php/?id='.$key["id"] . '" class="btn btn-success" >Edit</a> </td>';
 					echo'<td><a href="DeleteStudent.php" class="btn btn-danger">Delete</td>';
 				
 
