@@ -28,6 +28,18 @@
 		return $data;
 		
 	}
+	function getArray($query){
+	
+		global $dbusername,$servername,$dbpassword,$db_name;
+	    $conn = mysqli_connect($servername,$dbusername,$dbpassword,$db_name);
+		$result = mysqli_query($conn,$query);
+		$data = array();
+		while($row = mysqli_fetch_assoc($result)){
+			$data[] = $row;
+		}
+	
+		return $data;
+	}
 	
 	
 	

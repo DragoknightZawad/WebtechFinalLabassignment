@@ -22,8 +22,9 @@
 		return $result;
 	}
 	function SearchBook($name){
-		$query = "SELECT * from books where name like'%$name%' ";
-		$result = get($query);
+		
+		$query = "SELECT * from books where name like '%$name%'; ";
+		$result = getArray($query);
 	   
 		//if(count($categories) < 2) 
 		return $result;

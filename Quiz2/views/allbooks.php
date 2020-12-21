@@ -5,12 +5,12 @@
 ?>
 <!--All Products starts -->
 <div class="center">
-	<input type="text" placeholder="type your search ..." id="search_text" onkeyup="search(this)" class="form-control">
+	<input type="text" placeholder="type your search ..." id="search_text" onkeyup="search()" class="form-control">
 </div>
 
 <table class="table table-striped center" id="suggestion">
 <div class="center">
-	<h3 class="text">List of Books</h3>
+	
 	<table class="table table-striped">
 		<thead>
 			<th>ID</th>
@@ -52,6 +52,7 @@
 	}
 	function search(){
 		var text = get("search_text").value;
+		
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange=function(){
 			if(this.readyState == 4 && this.status == 200 ){
@@ -59,7 +60,7 @@
 			}
 		};
 		if(text){
-			xhttp.open("GET","search.php?name="+text.value,true);
+			xhttp.open("GET","search.php?name="+text,true);
 			xhttp.send();
 		}
 		else{
