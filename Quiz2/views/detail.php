@@ -14,7 +14,7 @@ $book = getBook($key);
 
   echo "<tr>";
 
-    echo '<td><img src="../'.$book["image"].'" alt="" style="width:200px;height:200px;" ></td>';
+    echo '<td><img src="'.$book["image"].'" alt="" style="width:200px;height:200px;" ></td>';
 
         echo "</tr>";
 
@@ -34,7 +34,7 @@ $book = getBook($key);
 
   echo "  </table>";
 
-  echo '<a href="dashboard.php">Dashboard</a>';
+  echo '<a href="allbooks.php">Home Page</a>';
 
 
 

@@ -12,14 +12,11 @@
 		$result = get($query);
 		return $result;
 	}
-	function getProduct($id)
-	{
-	
-		$query = "SELECT * FROM products WHERE id=$id";
-		$result=get($query);
-		if(count($result)>0)$result=$result[0];
-		
-		return $result;
+	function getBook($id){
+  $query="SELECT * FROM books WHERE id=$id";
+  $books = getArray($query);
+  return $books[0];
+
 	}
 	function SearchBook($name){
 		
@@ -30,4 +27,5 @@
 		return $result;
 
 	}
+
 ?>
